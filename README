@@ -1,0 +1,11 @@
+PRAVIN NAGARE		pnagare1@binghamton.edu
+
+Description:
+
+disable address space layout randomization (ASLR):
+sudo sysctl -w kernel.randomize_va_space=0	
+
+Steps to run:
+1. Run the make command to compile vuln_program.c and attack-string.c
+2. ./attack-string $'\xe0\x8e\x04\x08' > ./attack.input  
+3. ./vuln-program < ./attack.input
