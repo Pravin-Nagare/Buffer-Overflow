@@ -1,11 +1,12 @@
-PRAVIN NAGARE		pnagare1@binghamton.edu
+This program is written in C using gdb to call a function, which never meant to be called.
+Here, promt function is called in main function which accepts the string as input. If your input string size is more than the buf[]
+(char array with size 100 here) and override the return address of function promt (which you can easily get using gdb) with the address
+of target function then return function call from promt will go to target function.
 
-Description:
-
-disable address space layout randomization (ASLR):
+Disable address space layout randomization (ASLR):
 sudo sysctl -w kernel.randomize_va_space=0	
 
 Steps to run:
 1. Run the make command to compile vuln_program.c and attack-string.c
-2. ./attack-string $'\xe0\x8e\x04\x08' > ./attack.input  
+2. ./attack-string $'\xe0\x8e\x04\x08' > ./attack.input  (here '\xe0\x8e\x04\x08' is the address of target function)
 3. ./vuln-program < ./attack.input
